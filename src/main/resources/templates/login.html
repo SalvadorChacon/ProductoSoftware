@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Login</title>
+</head>
+<body>
+     <p th:if="${param.error}">Algún dato no es válido.</p>
+     <p th:if="${param.logout}">Desconectado.</p>
+
+     <form th:action="@{/login}" method="post">
+     	<div>User: <input type="text" name="username"/></div>
+        <div>Pass: <input type="password" name="password"/></div>
+        <div><input type="submit" value="Iniciar Sesión"/></div>
+     </form>
+</body>
+</html>

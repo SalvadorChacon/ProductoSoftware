@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Mensaje</title>
+</head>
+<body>
+	<h2>Mensajes</h2>
+	<p th:inline="text">[[${#httpServletRequest.remoteUser}]] tiene 0 mensajes</p>
+	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Desconectarse"/>
+       </form>
+        <form th:action="@{/AdministrarProductos}" method="post">
+            <input type="submit" value="Administrar Productos"/>
+        </form>
+</body>
+</html>

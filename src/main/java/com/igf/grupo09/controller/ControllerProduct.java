@@ -13,7 +13,7 @@ public class ControllerProduct {
     @Autowired
     private ProductRepository repository;
     
-    @RequestMapping("/")
+    @RequestMapping("/AdministrarProductos")
     @ResponseBody
     String home()
     {
