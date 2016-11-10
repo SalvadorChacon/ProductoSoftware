@@ -10,13 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ControllerProduct {
+public class HomeController {
     
     @Autowired
     private ProductRepository repository;
     
-    @RequestMapping("/AdministrarProductos")
-    String administrarProductos(Model model)
+    @RequestMapping("/")
+    String home(Model model)
     {
         repository.save(new Product("The Dark Tower", "Science Fiction", 25.75, "1001001110"));
         repository.save(new Product("The Dark Tower II", "Science Fiction", 35.00, "100110011"));
@@ -26,12 +26,17 @@ public class ControllerProduct {
         repository.save(new Product("The Dark Tower VI", "Science Fiction", 32.00, "100100111"));
         repository.save(new Product("The Dark Tower VII", "Science Fiction", 47.30, "100100111"));
         List<Product> inventory = new ArrayList();
-        for (Product p : repository.findAll())
+        for (Product product : repository.findAll())
         {
-            inventory.add(p);
+            inventory.add(product);
         }
-        model.addAttribute("inventario", inventory);
-   
-        return "AdministrarProductos";
+        
+        List<Product> result = new ArrayList();
+        for (int i = 0; i < 3; i++)
+        {
+            result.add(inventory.get(i));
+        }
+        model.addAttribute("stock", result);
+        return "index";
     }
 }

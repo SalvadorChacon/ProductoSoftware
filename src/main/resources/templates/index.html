@@ -7,9 +7,14 @@
     </head>
     <body>
         <header th:replace="layout::site-header"></header>
-        <h2>Acceder para ver Mensaje</h2>
-        <a th:href="@{/mensaje}"><button>Acceder</button></a>
+        <a th:href="@{/mensaje}"><button>Iniciar Sesión</button></a>
         <p>Now is <b th:text="${execInfo.now.time}"></b></p>
+        <article th:each="product : ${stock}">
+            <h2 th:text="${product.nameProduct}">Product Title</h2>
+            <p th:text="${product.description}">Product Description</p>
+            <h3 th:text="${product.priceProduct}">Product Price</h3>
+            <p th:text="${product.codeProduct}"/>
+        </article>
         <footer th:replace="layout::site-footer"></footer>
     </body>
 </html>
