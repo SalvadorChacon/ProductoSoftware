@@ -2,10 +2,12 @@ package com.igf.grupo09.controller;
 
 import com.igf.grupo09.model.Product;
 import com.igf.grupo09.persistence.ProductRepository;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ControllerProduct {
@@ -14,21 +16,19 @@ public class ControllerProduct {
     private ProductRepository repository;
     
     @RequestMapping("/AdministrarProductos")
-    @ResponseBody
-    String home()
+    String administrarProductos(Model model)
     {
-        String answer = "";
         repository.save(new Product("The Dark Tower", "Science Fiction", 25.75, "1001001110"));
         repository.save(new Product("The Dark Tower II", "Science Fiction", 35.00, "100110011"));
         repository.save(new Product("The Dark Tower III", "Science Fiction", 42.00, "100110010"));
         repository.save(new Product("The Dark Tower IV", "Science Fiction", 23.30, "100100111"));
-        for (Product product : repository.findAll())
+        List<Product> inventory = new ArrayList();
+        for (Product p : repository.findAll())
         {
-            answer += product.toString();
-            answer += " ";
+            inventory.add(p);
         }
-        return answer;
+        model.addAttribute("inventario", inventory);
+   
+        return "AdministrarProductos";
     }
-    
-    
 }

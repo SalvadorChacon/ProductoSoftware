@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="layout::site-head">
+        <title>Administración de Productos</title>
+    </head>
+    <body>
+        <header th:replace="layout::site-header"/>
+        <table>
+            <tr th:each="product : ${inventario}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.nameProduct}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.priceProduct}"></td>
+                <td th:text="${product.codeProduct}"></td>
+            </tr>
+        </table>
+    </body>
+</html>

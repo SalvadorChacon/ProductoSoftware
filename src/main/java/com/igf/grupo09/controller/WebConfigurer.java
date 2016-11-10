@@ -1,4 +1,4 @@
-package com.igf.grupo09;
+package com.igf.grupo09.controller;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
