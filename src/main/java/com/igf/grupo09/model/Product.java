@@ -1,5 +1,6 @@
 package com.igf.grupo09.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,7 @@ public class Product {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="idProducto", unique=true, nullable=false)
     private Long id;
     private String nameProduct;
     private String description;
