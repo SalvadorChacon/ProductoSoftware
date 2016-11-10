@@ -7,4 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface ProductRepository extends CrudRepository<Product, Long> {
     
     List<Product> findByNameProduct(String name);
+    //Product addProduct();
+    //Product editProduct();
+    //void deleteProduct(Long id);
 }

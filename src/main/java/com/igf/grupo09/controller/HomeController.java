@@ -39,4 +39,5 @@ public class HomeController {
         model.addAttribute("stock", result);
         return "index";
     }
+   
 }

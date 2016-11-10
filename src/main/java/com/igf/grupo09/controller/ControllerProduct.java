@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -34,4 +35,13 @@ public class ControllerProduct {
    
         return "AdministrarProductos";
     }
+    
+    @RequestMapping("/products/details/{id}")
+    String view(@PathVariable("id")Long id, Model model)
+    {
+        Product product = repository.findOne(id);
+        model.addAttribute("product", product);
+        return "products/details";
+    }
+    
 }

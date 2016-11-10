@@ -8,7 +8,7 @@
         <table>
             <tr th:each="product : ${inventario}">
                 <td th:text="${product.id}"></td>
-                <td th:text="${product.nameProduct}"></td>
+                <td><a href="#" th:text="${product.nameProduct}" th:href="@{/products/details/{id}/(id=${product.id})}">Product Name</a></td>
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.priceProduct}"></td>
                 <td th:text="${product.codeProduct}"></td>
