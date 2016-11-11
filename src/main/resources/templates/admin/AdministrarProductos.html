@@ -7,7 +7,7 @@
         <header th:replace="layout::site-header"/>
         <a th:href="@{/admin/agregarProducto}"><button>Add Product</button></a>
         <p th:text="${res}"></p>
-        <table>
+        <table th:if="${not inventario.isEmpty()}">
             <tr th:each="product : ${inventario}">
                 <td th:text="${product.id}"></td>
                 <td><a href="#" th:text="${product.nameProduct}" th:href="@{/products/details/{id}/(id=${product.id})}">Product Name</a></td>

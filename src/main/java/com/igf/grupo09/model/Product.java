@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Product {
@@ -13,10 +14,15 @@ public class Product {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="idProducto", unique=true, nullable=false)
     private Long id;
+    @Column(nullable=false)
     private String nameProduct;
     private String description;
+    @Column(nullable=false)
     private double priceProduct;
+    @Column(nullable=false)
     private String codeProduct;
+    @OneToOne
+    private Categoria categoria;
     
     protected Product(){}
     
@@ -102,6 +108,20 @@ public class Product {
     public String toString()
     {
         return String.format("%d %s %s %f %s", id, nameProduct, description, priceProduct, codeProduct);
+    }
+
+    /**
+     * @return the categoria
+     */
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
     
 }

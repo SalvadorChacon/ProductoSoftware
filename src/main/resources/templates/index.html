@@ -9,12 +9,5 @@
         <header th:replace="layout::site-header"></header>
         <a th:href="@{/mensaje}"><button>Iniciar Sesión</button></a>
         <p>Now is <b th:text="${execInfo.now.time}"></b></p>
-        <article th:each="product : ${stock}">
-            <a href="#" th:text="${product.nameProduct}" th:href="@{/products/details/{id}/(id=${product.id})}">Product Id</a>
-            <p th:text="${product.description}">Product Description</p>
-            <h3 th:text="${product.priceProduct}">Product Price</h3>
-            <p th:text="${product.codeProduct}"/>
-        </article>
-        <footer th:replace="layout::site-footer"></footer>
     </body>
 </html>

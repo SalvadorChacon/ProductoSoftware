@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head th:replace="layout::site-head">
+        <title>Administración de Categorías</title>
+    </head>
+    <body>
+        <header th:replace="layout::site-header"/>
+        <a th:href="@{/admin/categorias/agregar_categoria}"><button>Agregar Categoría</button></a>
+        <p th:text="${res}"></p>
+        
+        <table th:if="${not categorias.isEmpty()}">
+            <tr th:each="categoria : ${categorias}">
+                <td th:text="${categoria.id}"></td>
+                <td th:text="${categoria.nombre}"></td>
+                <td th:text="${categoria.codigo}"></td>
+                <td><a href="#" th:href="@{/admin/categorias/eliminar_categoria/{id}/(id=${categoria.id})}"><button>Eliminar</button></a></td>   
+                <td><a href="#" th:href="@{/admin/categorias/editar_categoria/{id}/(id=${categoria.id})}"><button>Editar</button></a></td>   
+            </tr>
+        </table>
+        
+    </body>
+</html>

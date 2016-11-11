@@ -11,6 +11,10 @@
             <p>Code: <input type="text" th:field="*{codeProduct}"/></p>
             <p>Price: <input type="number" th:field="*{priceProduct}" step="any"/></p>
             <p>Description: <input type="text" th:field="*{description}"/></p>
+            <select name="categorias">
+                <option value="">---- Selecciona una Categoría ---</option>
+                <option th:each="c : ${categorias}" th:value="${c.id}" th:text="c.nombre" th:selected="">Nombre Categoria</option>
+            </select>
             <p><input type="submit" value="Submit"/><input type="reset"/></p>
         </form>
     </body>
