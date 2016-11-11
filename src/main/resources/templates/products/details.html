@@ -11,8 +11,9 @@
                 <p th:text="${product.description}">Product Description</p>
                 <h3 th:text="${product.priceProduct}">Price Product</h3>
                 <p th:text="${product.codeProduct}">Code Product</p>
+                En Stock: <p th:text="${product.cantidadExistencias}">Existencias</p>
             </article>
         </main>
-        <footer th:replace="layout::site-footer"/>
+        <a th:href="@{/admin/AdministrarProductos}">Retornar</a>
     </body>
 </html>

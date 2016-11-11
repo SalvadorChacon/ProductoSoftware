@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Edición de Producto</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <form action="#" th:action="@{/admin/editProduct}" th:object="${product}" method="post">
+            
+            <p>Nombre: <input type="text" th:field="${product.nameProducto}" required=""/></p>
+            <p>Código: <input type="text" th:field="${product.codeProduct}" required=""/></p>
+            <p>Precio: <input type="number" th:field="${product.priceProduct}" step="any" required=""/></p>
+            <p>Descripción: <input type="text" th:field="${product.description}"/></p>
+            <p>Existencias: <input type="number" th:field="${product.cantidadExistencias}" required="" min="1"/></p>
+            <select name="categorias" th:field="${product.categoria}">
+                <option th:each="c : ${categorias}" th:value="${c.id}" th:text="c.nombre">Nombre Categoria</option>
+            </select>
+            <p><input type="submit" value="Guardar Cambios"/></p>
+        </form>
+        <a th:href="@{/admin/AdministrarProductos}">Retornar</a>
+    </body>
+</html>

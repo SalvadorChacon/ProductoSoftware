@@ -77,4 +77,11 @@ public class ControllerProduct {
         model.addAttribute("categorias", categorias);
         return "admin/AdministrarProductos";
     }
+    
+    @RequestMapping("/admin/editar_producto/{id}")
+    String editProduct(@PathVariable("id")Long id, Model model,Product product)
+    {
+        model.addAttribute("product", product);
+        return "admin/editarProducto";
+    }
 }

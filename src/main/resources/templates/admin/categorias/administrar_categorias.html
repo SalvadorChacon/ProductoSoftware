@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head th:replace="layout::site-head">
+    <head>
         <title>Administración de Categorías</title>
     </head>
     <body>
@@ -14,9 +14,8 @@
                 <td th:text="${categoria.nombre}"></td>
                 <td th:text="${categoria.codigo}"></td>
                 <td><a href="#" th:href="@{/admin/categorias/eliminar_categoria/{id}/(id=${categoria.id})}"><button>Eliminar</button></a></td>   
-                <td><a href="#" th:href="@{/admin/categorias/editar_categoria/{id}/(id=${categoria.id})}"><button>Editar</button></a></td>   
-            </tr>
+                </tr>
         </table>
-        
+        <a th:href="@{/mensaje}">Retornar</a>
     </body>
 </html>

@@ -6,7 +6,6 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <header th:replace="layout::site-header"></header>
         <a th:href="@{/mensaje}"><button>Iniciar Sesión</button></a>
         <p>Now is <b th:text="${execInfo.now.time}"></b></p>
     </body>

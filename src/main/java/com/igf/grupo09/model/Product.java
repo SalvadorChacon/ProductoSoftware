@@ -21,6 +21,7 @@ public class Product {
     private double priceProduct;
     @Column(nullable=false)
     private String codeProduct;
+    private int cantidadExistencias;
     @OneToOne
     private Categoria categoria;
     
@@ -32,6 +33,7 @@ public class Product {
         this.description = desc;
         this.priceProduct = price;
         this.codeProduct = code;
+        this.cantidadExistencias = 0;
     }
 
     /**
@@ -122,6 +124,20 @@ public class Product {
      */
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    /**
+     * @return the cantidadExistencias
+     */
+    public int getCantidadExistencias() {
+        return cantidadExistencias;
+    }
+
+    /**
+     * @param cantidadExistencias the cantidadExistencias to set
+     */
+    public void setCantidadExistencias(int cantidadExistencias) {
+        this.cantidadExistencias = cantidadExistencias;
     }
     
 }

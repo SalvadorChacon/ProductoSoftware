@@ -9,14 +9,24 @@
         <a th:href="@{/admin/agregarProducto}"><button>Add Product</button></a>
         <p th:text="${res}"></p>
         <table th:if="${not inventario.isEmpty()}">
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Descripción</td>
+                <td>Precio ($)</td>
+                <td>Código</td>
+                <td>Existencias</td>
+                <td></td>
+            </tr>
             <tr th:each="product : ${inventario}">
                 <td th:text="${product.id}"></td>
                 <td><a href="#" th:text="${product.nameProduct}" th:href="@{/products/details/{id}/(id=${product.id})}">Product Name</a></td>
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.priceProduct}"></td>
                 <td th:text="${product.codeProduct}"></td>
+                <td th:text="${product.cantidadExistencias}"></td>
+                
             </tr>
         </table>
-         
     </body>
 </html>
