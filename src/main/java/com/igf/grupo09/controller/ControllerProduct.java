@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,7 +17,7 @@ public class ControllerProduct {
     @Autowired
     private ProductRepository repository;
     
-    @RequestMapping("/AdministrarProductos")
+    @RequestMapping("/admin/AdministrarProductos")
     String administrarProductos(Model model)
     {
         repository.save(new Product("The Dark Tower", "Science Fiction", 25.75, "1001001110"));
@@ -32,8 +33,9 @@ public class ControllerProduct {
             inventory.add(p);
         }
         model.addAttribute("inventario", inventory);
+        model.addAttribute("producto", new Product("Hola", "mundo", 0.00, "desc"));
    
-        return "AdministrarProductos";
+        return "admin/AdministrarProductos";
     }
     
     @RequestMapping("/products/details/{id}")
@@ -44,4 +46,33 @@ public class ControllerProduct {
         return "products/details";
     }
     
+    @RequestMapping("admin/agregarProducto")
+    String addProduct(Model model)
+    {
+        model.addAttribute("product", new Product("", "", 0.00, ""));
+        return "admin/agregarProducto";
+    }
+    
+    @RequestMapping("/admin/saveProduct")
+    String save(Model model, Product producto)
+    {
+        String answer = "";
+        try{
+            repository.save(producto);
+            answer = "Saved Succesfully";
+        }
+        catch (Exception e)
+        {
+            answer = "Something went wrong";
+        }
+        
+        model.addAttribute("res", answer);
+        List<Product> inventory = new ArrayList();
+        for (Product p : repository.findAll())
+        {
+            inventory.add(p);
+        }
+        model.addAttribute("inventario", inventory);
+        return "admin/AdministrarProductos";
+    }
 }

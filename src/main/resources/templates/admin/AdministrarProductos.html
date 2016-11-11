@@ -5,6 +5,8 @@
     </head>
     <body>
         <header th:replace="layout::site-header"/>
+        <a th:href="@{/admin/agregarProducto}"><button>Add Product</button></a>
+        <p th:text="${res}"></p>
         <table>
             <tr th:each="product : ${inventario}">
                 <td th:text="${product.id}"></td>
@@ -14,5 +16,6 @@
                 <td th:text="${product.codeProduct}"></td>
             </tr>
         </table>
+         
     </body>
 </html>

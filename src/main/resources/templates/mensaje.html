@@ -6,11 +6,11 @@
 </head>
 <body>
 	<h2>Mensajes</h2>
-	<p th:inline="text">[[${#httpServletRequest.remoteUser}]] tiene 0 mensajes</p>
+	<p th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</p>
 	<form th:action="@{/logout}" method="post">
             <input type="submit" value="Desconectarse"/>
        </form>
-        <form th:action="@{/AdministrarProductos}" method="post">
+        <form th:action="@{/admin/AdministrarProductos}" method="post">
             <input type="submit" value="Administrar Productos"/>
         </form>
 </body>
