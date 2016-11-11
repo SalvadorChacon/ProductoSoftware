@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: brown;
+    background-color: whitesmoke;
+    border: black 1px solid;
+}
+
+footer {
+    border-top-color: black;
+    border-top-width: 2px;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}

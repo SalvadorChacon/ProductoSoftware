@@ -5,8 +5,8 @@
     </head>
     <body>
         <form action="#" th:action="@{/admin/categorias/guardar_categoria}" th:object="${categoria}" method="post">
-            <p>Name: <input type="text" th:field="*{nombre}"/></p>
-            <p>Code: <input type="text" th:field="*{codigo}"/></p>
+            <p>Name: <input type="text" th:field="*{nombre}" required=""/></p>
+            <p>Code: <input type="text" th:field="*{codigo}" required=""/></p>
             <p><input type="submit" value="Submit"/><input type="reset"/></p>
         </form>
     </body>

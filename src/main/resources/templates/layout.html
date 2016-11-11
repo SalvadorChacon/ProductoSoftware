@@ -2,21 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head th:fragment="site-head">
         <meta charset="UTF-8"/>
+        
         <meta th:include="this::head" th:remove="tag"/>
     </head>
     <body>
         <header th:fragment="site-header">
-            <a href="index.html" th:href="@{/}">Home</a>
-            <a href="users/login.html" th:href="@{/login}">Login</a>
-            <a href="users/register.html" th:href="@{/register}">Register</a>
-            <div id="logged-in-info"><span>Hello, <b>(user)</b></span></div>
+            <a href="mensaje.html" th:href="@{/mensaje}">Home</a>
             <form method="post" th:action="@{/logout}">
                 <input type="submit" value="Logout"/>
             </form>
         </header>
         <h1>Welcome</h1>
         <footer th:fragment="site-footer">
-            <p>StockDeal</p><br/>
+            <p></p>
             <p>2016</p>
         </footer>
     </body>

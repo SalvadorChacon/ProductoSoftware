@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head th:replace="layout::site-head">
+    <head>
         <title>Add Product</title>
+        <link rel="stylesheet" type="text/css" th:href="@{estilos.css}" href="estilos.css"/>
     </head>
     <body>
         <form action="#" th:action="@{/admin/saveProduct}" th:object="${product}" method="post">

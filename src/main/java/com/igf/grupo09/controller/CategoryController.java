@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CategoryController{
+    private int flag = 0;
     
     @Autowired
     private CategoryRepository repository;
@@ -21,6 +22,7 @@ public class CategoryController{
     @RequestMapping("/admin/categorias/administrar_categorias")
     String administrarCategorias(Model model)
     {
+        this.checkFlag();
         List<Categoria> categorias = new ArrayList();
         for (Categoria c : repository.findAll())
         {
@@ -81,5 +83,19 @@ public class CategoryController{
         }
         model.addAttribute("categorias", categorias);
         return "admin/categorias/administrar_categorias";
+    }
+    
+    public void checkFlag()
+    {
+        if (flag == 0)
+        {
+            this.init();
+            flag = 1;
+        }
+    }
+    
+    private void init()
+    {
+        repository.save(new Categoria("C-0001", "Default"));
     }
 }

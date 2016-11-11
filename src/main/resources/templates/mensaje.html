@@ -5,8 +5,7 @@
 	<title>Mensaje</title>
 </head>
 <body>
-	<h2>Mensajes</h2>
-	<p th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</p>
+	<p th:inline="text">Bienvenido [[${#httpServletRequest.remoteUser}]]</p>
 	<form th:action="@{/logout}" method="post">
             <input type="submit" value="Desconectarse"/>
        </form>
